@@ -76,12 +76,12 @@ public class SimpleMathClass {
 
     //TODO FIX ME
     public double multiply(double number1, double number2) {
-        return Double.NaN;
+        return number1 * number2;
     }
 
     //TODO FIX ME
     public double divide(double number1, double number2) {
-        return Double.NaN;
+        return number1 / number2;
     }
 
 }

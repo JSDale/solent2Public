@@ -42,6 +42,42 @@ public class SimpleMathClassTest {
         Assert.assertEquals(301.5, result, 0.00001);
     }
     
-    // add tests for subtract, multiply, divide
+    // added tests for subtract, multiply, divide
+    
+    @Test
+    public void testSubtract() {
+        SimpleMathClass simpleMathClass = new SimpleMathClass();
+        
+        int number1 = 300;
+        int number2 = 5;
+        double result = simpleMathClass.subtract(number1, number2);
+
+        // expected, result, delta (compare floating point numbers
+        Assert.assertEquals(295, result, 5);
+    }
+    
+    @Test
+    public void testMultiply() {
+        SimpleMathClass simpleMathClass = new SimpleMathClass();
+        
+        int number1 = 5;
+        int number2 = 5;
+        double result = simpleMathClass.multiply(number1, number2);
+
+        // expected, result, delta (compare floating point numbers
+        Assert.assertEquals(25, result, 20);
+    }
+    
+    @Test
+    public void testDivide() {
+        SimpleMathClass simpleMathClass = new SimpleMathClass();
+        
+        int number1 = 300;
+        int number2 = 10;
+        double result = simpleMathClass.subtract(number1, number2);
+
+        // expected, result, delta (compare floating point numbers
+        Assert.assertEquals(30, result, 290);
+    }
     
 }
