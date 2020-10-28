@@ -10,9 +10,12 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import java.util.List;
 import static org.junit.Assert.*;
 import org.solent.com504.oodd.cart.model.service.ShoppingCart;
 import org.solent.com504.oodd.cart.service.ServiceObjectFactory;
+import org.solent.com504.oodd.cart.model.dto.ShoppingItem;
+import org.solent.com504.oodd.cart.service.ShoppingCartImpl;
 
 /**
  *
@@ -31,6 +34,18 @@ public class ShoppingCartTest {
     @Test
     public void test1() {
         assertNotNull(shoppingCart);
+    }
+    
+    @Test
+    public void test_AddItemToCart() {
+        ShoppingItem item = new ShoppingItem("car", 50000.00);
+        ShoppingCartImpl cart = new ShoppingCartImpl();
+        cart.addItemToCart(item);
+        
+        List<ShoppingItem> items = cart.getShoppingCartItems();
+        ShoppingItem listItem = items.get(0);
+        
+        assertEquals(item, listItem);
     }
 
     // add your own tests here

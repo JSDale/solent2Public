@@ -33,9 +33,14 @@
         message = "adding "+itemName + " to cart : "+shoppingItem;
         shoppingCart.addItemToCart(shoppingItem);
     }
-    if ("removeItemFromCart".equals(action)) {
+    else if ("removeItemFromCart".equals(action)) {
         message = "removing "+itemName + " from cart";
-        shoppingCart.removeItemFromCart(itemUuid);
+        try{
+            shoppingCart.removeItemFromCart(itemUuid);
+    }
+        catch(Exception e){
+            message = "Null Error";
+    }
     } else {
         message = "action="+action;
     }
