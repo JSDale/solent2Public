@@ -52,10 +52,10 @@
     </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <UseRelation name="createsObjects" source="org.solent.com504.factoryandfacade.model.AnimalObjectFactory" target="org.solent.com504.factoryandfacade.model.Animal" sourceCardinality="1..1" targetCardinality="1..1"/>
     <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="org.solent.com504.factoryandfacade.model.Dog" target="org.solent.com504.factoryandfacade.model.Animal"/>
     <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="org.solent.com504.factoryandfacade.model.Cow" target="org.solent.com504.factoryandfacade.model.Animal"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="org.solent.com504.factoryandfacade.model.Cat" target="org.solent.com504.factoryandfacade.model.Animal"/>
     <UseRelation name="usesAnimal" source="org.solent.com504.factoryandfacade.model.FarmFacade" target="org.solent.com504.factoryandfacade.model.Animal" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="createsObjects" source="org.solent.com504.factoryandfacade.model.AnimalObjectFactory" target="org.solent.com504.factoryandfacade.model.Animal" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="org.solent.com504.factoryandfacade.model.Cat" target="org.solent.com504.factoryandfacade.model.Animal"/>
   </ClassDiagramRelations>
 </ClassDiagram>

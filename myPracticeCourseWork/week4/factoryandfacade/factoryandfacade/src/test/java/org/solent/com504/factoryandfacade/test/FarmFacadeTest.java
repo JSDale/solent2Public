@@ -1,12 +1,7 @@
 package org.solent.com504.factoryandfacade.test;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.solent.com504.factoryandfacade.model.Animal;
@@ -14,6 +9,7 @@ import org.solent.com504.factoryandfacade.impl.AnimalObjectFactory;
 import org.solent.com504.factoryandfacade.model.Cat;
 import org.solent.com504.factoryandfacade.model.Cow;
 import org.solent.com504.factoryandfacade.model.Dog;
+import org.solent.com504.factoryandfacade.model.Duck;
 import org.solent.com504.factoryandfacade.model.FarmFacade;
 
 /**
@@ -80,6 +76,28 @@ public class FarmFacadeTest {
         //Actual
         FarmFacade farmFacade = AnimalObjectFactory.getFarmFacade();
         farmFacade.addCow("fido");
+        List<Animal> facadeAnimals = farmFacade.getAllAnimals();
+        for (int i = 0; i > facadeAnimals.size(); i++){
+            if(facadeAnimals.toArray()[i] == expected)
+            {
+                assertEquals(facadeAnimals.toArray()[i], expected);
+            }
+            else{
+                fail();
+            }
+        }
+    }
+    
+    @Test
+    public void FarmFacadeAddDuckTest(){
+        //Expected
+        List<Animal> animals = new ArrayList<>();
+        Animal expected = new Duck();
+        expected.setName("fido");
+
+        //Actual
+        FarmFacade farmFacade = AnimalObjectFactory.getFarmFacade();
+        farmFacade.addDuck("fido");
         List<Animal> facadeAnimals = farmFacade.getAllAnimals();
         for (int i = 0; i > facadeAnimals.size(); i++){
             if(facadeAnimals.toArray()[i] == expected)

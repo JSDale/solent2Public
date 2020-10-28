@@ -34,5 +34,6 @@
         <module>workup/webfacadeexample1</module>
         <module>workup/mavenproject1</module>
         <module>week2/mavenproject1</module>
+        <module>myPracticeCourseWork/week4/factoryandfacade/factoryFacadeTemporyProj</module>
     </modules>
 </project>
