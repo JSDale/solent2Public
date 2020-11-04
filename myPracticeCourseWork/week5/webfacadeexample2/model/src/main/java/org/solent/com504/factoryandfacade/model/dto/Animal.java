@@ -21,6 +21,8 @@ public class Animal {
     private AnimalType animalType;
 
     private Long id;
+    
+    private String food;
 
     // getter and setters
     public String getName() {
@@ -28,10 +30,6 @@ public class Animal {
     }
 
     public void setName(String name) {
-        if(name == null)
-        {
-            throw new NullPointerException();
-        }
         this.name = name;
     }
 
@@ -40,10 +38,6 @@ public class Animal {
     }
 
     public void setAddress(String address) {
-        if(address == null)
-        {
-            throw new NullPointerException();
-        }
         this.address = address;
     }
 
@@ -52,10 +46,6 @@ public class Animal {
     }
 
     public void setAnimalType(AnimalType animalType) {
-        if(animalType == null)
-        {
-            throw new NullPointerException();
-        }
         this.animalType = animalType;
     }
 
@@ -64,11 +54,15 @@ public class Animal {
     }
 
     public void setId(Long id) {
-        if(id == null)
-        {
-            throw new NullPointerException();
-        }
         this.id = id;
+    }
+    
+    public String getFood(){
+        return food;
+    }
+    
+    public void setFood(String food){
+        this.food = food;
     }
 
     // additional methods

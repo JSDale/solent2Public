@@ -67,12 +67,13 @@ public class FarmFacadeTest {
 
         String type = farmFacade.getSupportedAnimalTypes().get(0);
         String name = "duplicateTestName";
-        farmFacade.addAnimal(type, name);
+        String food = "trail mix";
+        farmFacade.addAnimal(type, name, food);
         assertEquals(1, farmFacade.getAllAnimals().size());
 
         try {
             // adding duplicate name - should throw exception
-            farmFacade.addAnimal(type, name);
+            farmFacade.addAnimal(type, name, food);
             fail("adding duplicate animal did not throw IllegalArgumentException ");
         } catch (IllegalArgumentException e) {
         }
@@ -93,10 +94,11 @@ public class FarmFacadeTest {
 
         System.out.println("testing adding supported animals to facade:");
         // create 3 of every animal type
+        String food = "trial mix";
         for (int i = 0; i < 3; i++) {
             for (String animalType : supportedAnimalTypes) {
                 String name = animalType + "_" + i;
-                farmFacade.addAnimal(animalType, name);
+                farmFacade.addAnimal(animalType, name, food);
             }
         }
 

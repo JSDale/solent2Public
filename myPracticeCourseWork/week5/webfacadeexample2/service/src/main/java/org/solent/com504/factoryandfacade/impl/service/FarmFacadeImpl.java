@@ -30,7 +30,7 @@ public class FarmFacadeImpl implements FarmFacade {
     }
 
     @Override
-    public Animal addAnimal(String animalTypeStr, String name) {
+    public Animal addAnimal(String animalTypeStr, String name, String food) {
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("name cannot be null or empty ");
         }
@@ -41,10 +41,14 @@ public class FarmFacadeImpl implements FarmFacade {
         if (getAnimal(name) != null) {
             throw new IllegalArgumentException("animal name is duplicated but must be unique. name=" + name);
         }
+        if (food == null){
+            throw new IllegalArgumentException("food cannot be null or empty");
+        }
 
         AnimalType animalType = animalTypeDao.getAnimalType(animalTypeStr);
         Animal animal = animalDao.create(animalType);
         animal.setName(name);
+        animal.setFood(food);
         animalDao.updateOrSave(animal);
         return animal;
     }

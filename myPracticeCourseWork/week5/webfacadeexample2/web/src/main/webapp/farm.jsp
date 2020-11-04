@@ -17,13 +17,14 @@
     // accessing request parameters
     String animalNameStr = request.getParameter("animalName");
     String animalTypeStr = request.getParameter("animalType");
+    String animalFoodStr = request.getParameter("animalFood");
 
     // basic error checking
     if (animalNameStr != null && animalTypeStr != null) {
         if (farmFacade.getAnimal(animalNameStr) != null) {
             errorMessage = "ERROR: you cannot have dupicate animal names";
         } else {
-            farmFacade.addAnimal(animalTypeStr, animalNameStr);
+            farmFacade.addAnimal(animalTypeStr, animalNameStr, animalFoodStr);
         }
     }
 
@@ -41,9 +42,9 @@
         <div style="color:red;"><%=errorMessage%></div>
  
         <p>This is basically the same page we have been using in previous examples. </p>
-        <%  if (animalNameStr != null || animalTypeStr != null) {
+        <%  if (animalNameStr != null || animalTypeStr != null || animalFoodStr != null) {
         %>
-        <p>Creating new animal type= <%=animalTypeStr%> name= <%=animalNameStr%></p>
+        <p>Creating new animal type= <%=animalTypeStr%> name= <%=animalNameStr%> food= <%=animalFoodStr%></p>
         <% }
         %>
 
@@ -56,6 +57,7 @@
                     <form action="./farm.jsp">
                         <input type="hidden" name="animalType" value="<%=animalType%>">
                         Animal Name:  <input type="text" name="animalName">
+                        Animal Food: <input type="text" name="animalFood">
                         <button type="submit" >Create <%=animalType%></button>
                     </form> 
                 </td>
@@ -71,12 +73,14 @@
                 <th>Type</th>
                 <th>Name</th>
                 <th>Sound</th>
+                <th>Food</th>
             </tr>
             <% for (Animal animal : farmFacade.getAllAnimals()) {%>
             <tr>
                 <td><%=animal.getAnimalType().getType()%></td>
                 <td><%=animal.getName()%></td>
                 <td><%=animal.getAnimalType().getSound()%></td>
+                <td><%=animal.getFood()%></td>
             </tr>
             <%
                 }

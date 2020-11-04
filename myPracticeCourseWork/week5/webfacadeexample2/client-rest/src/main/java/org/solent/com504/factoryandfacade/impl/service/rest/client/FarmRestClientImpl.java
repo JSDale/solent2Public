@@ -58,8 +58,8 @@ public class FarmRestClientImpl implements FarmFacade {
     }
 
     @Override
-    public Animal addAnimal(String animalType, String animalName) {
-        LOG.debug("client addAnimal Called animalType=" + animalType + " animalName=" + animalName);
+    public Animal addAnimal(String animalType, String animalName, String animalFood) {
+        LOG.debug("client addAnimal Called animalType= " + animalType + " animalName= " + animalName +"animal food = " + animalFood);
 
         Client client = ClientBuilder.newClient(new ClientConfig().register(LoggingFilter.class));
         WebTarget webTarget = client.target(baseUrl).path("addAnimal");
@@ -68,6 +68,7 @@ public class FarmRestClientImpl implements FarmFacade {
         MultivaluedMap<String, String> formData = new MultivaluedHashMap<String, String>();
         formData.add("animalType", animalType);
         formData.add("animalName", animalName);
+        formData.add("animalFood", animalFood);
 
         Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_XML);
         Response response = invocationBuilder.post(Entity.form(formData));

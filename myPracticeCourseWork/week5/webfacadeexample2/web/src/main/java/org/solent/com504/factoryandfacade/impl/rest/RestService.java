@@ -90,13 +90,15 @@ public class RestService {
 
     /**
      * Creates an Animal of a given AnimalType with a name and adds the animal
-     * to the list of animals stored by this farm. Note only one animal can be
-     * added with the same name
-     *
-     * http://localhost:8084/basicfacadeweb/rest/farmService/addAnimal
+     * to the list of animals stored by this farm.Note only one animal can be
+ added with the same name
+
+ http://localhost:8084/basicfacadeweb/rest/farmService/addAnimal
      *
      * @param animalType type of animal ( which must have been created by the
      * AnimalTypeDao)
+     * @param animalName
+     * @param animalFood
      * @param name name to give this animal - does not have to be unique
      * @return an animal of a given type with the supplied name which has been
      * stored. Animal will also have been given an id.
@@ -107,14 +109,15 @@ public class RestService {
     @POST
     @Path("/addAnimal")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Response addAnimal(@QueryParam("animalType") String animalType, @QueryParam("animalName") String animalName) {
+    public Response addAnimal(@QueryParam("animalType") String animalType, @QueryParam("animalName") String animalName,
+            @QueryParam("animalFood") String animalFood){
         try {
-            LOG.debug("/addAnimal called animalType=" + animalType + "animalName=" + animalName);
+            LOG.debug("/addAnimal called animalType=" + animalType + "animalName=" + animalName + "animalFood= " + animalFood);
 
             FarmFacade serviceFacade = WebObjectFactory.getServiceFacade();
             ReplyMessage replyMessage = new ReplyMessage();
 
-            Animal addedAnimal = serviceFacade.addAnimal(animalType, animalName);
+            Animal addedAnimal = serviceFacade.addAnimal(animalType, animalName, animalFood);
             replyMessage.getAnimalList().getAnimals().add(addedAnimal);
             replyMessage.getAnimalList().setCurrentMaxId(null);
 

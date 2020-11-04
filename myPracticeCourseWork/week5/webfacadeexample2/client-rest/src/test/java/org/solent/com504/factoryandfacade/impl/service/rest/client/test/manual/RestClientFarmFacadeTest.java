@@ -54,7 +54,8 @@ public class RestClientFarmFacadeTest {
         LOG.debug("testAddAnimal()");
         String animalType = "Cat";
         String name = "randomName_" + new Date().getTime();
-        Animal animal = farmFacade.addAnimal(animalType, name);
+        String food = "Trial Mix";
+        Animal animal = farmFacade.addAnimal(animalType, name, food);
         String msg = "returned :" + animal;
         LOG.debug(msg);
         LOG.debug("end of testAddAnimal()");
