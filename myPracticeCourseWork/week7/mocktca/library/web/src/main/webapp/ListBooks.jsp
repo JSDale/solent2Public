@@ -78,20 +78,29 @@
 			errorMessage = "problem creating  Book " + e.getMessage();
 		}
 	} else if ("clearSearch".equals(action)) {
-		// TODO
-		// *********************************
-        // Add clear search code here
-        // *********************************
+                            // TODO
+                           List<Book> bookList =new ArrayList<Book>();
+                           bookList = serviceFacade.retrieveAllBooks();                                                     
 	}
 	
 	List<Book> bookList =new ArrayList<Book>();
+                    Book tempBook = new Book();
 	
 	if ("searchBooks".equals(action)) {
-        // TODO
-		// *********************************
-        // Add search code here
-        // *********************************
-	} else {
+                            // TODO
+                            if((String)request.getParameter("searchTitle") != "") {
+                                tempBook.setTitle((String) request.getParameter("searchTitle"));
+                            }
+                            if( (String)request.getParameter("searchAuthor") != "") {
+                                tempBook.setAuthor((String) request.getParameter("searchAuthor"));
+                            }
+                             if((String) request.getParameter("searchIsbn") != "") {
+                                tempBook.setIsbn((String) request.getParameter("searchIsbn"));
+                            }
+                            
+                            bookList = serviceFacade.retrieveMatchingBooks(tempBook);
+	} 
+                     else {
 		bookList = serviceFacade.retrieveAllBooks();
 	}
  
