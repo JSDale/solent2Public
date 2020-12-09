@@ -79,12 +79,13 @@
 		}
 	} else if ("clearSearch".equals(action)) {
                             // TODO
-                           List<Book> bookList =new ArrayList<Book>();
-                           bookList = serviceFacade.retrieveAllBooks();                                                     
+                            searchTitle = "";
+                            searchAuthor = "";
+                            searchIsbn = "";
 	}
 	
-	List<Book> bookList =new ArrayList<Book>();
-                    Book tempBook = new Book();
+	List<Book> bookList = new ArrayList<Book>();
+                     Book tempBook = new Book();
 	
 	if ("searchBooks".equals(action)) {
                             // TODO
